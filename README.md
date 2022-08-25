@@ -24,3 +24,11 @@ Con la finalidad de contar con un manejo de python, se hace un repaso breve sobr
 Podrán consultar de manera adicional tutoriales en video, sitios de bootcamp, cursos en Coursera, Udemy, etc. que son sitios dedicados para la capacitación en distintas herramientas.
 
 El nivel de complejidad con python aumentará con otros temas, librerías que en su momento serán necesarias. Cuentan con la completa libertad de elegir otros materiales y recursos para la parte de programación.
+
+# Tema 1 - Errores y aritmética de punto flotante.
+
+Como primer tema del curso de Física Computacional, comenzamos a estudiar los errores en el ámbito computacional, así como las fuentes de los mismos, de tal manera que se minimicen en nuestro trabajo.
+
+Se presenta también el concepto de punto flotante, las consideraciones necesarias para el manejo de este tipo de representación de los números.
+
+Haremos ejercicios representativos que nos darán las bases generales para los siguientes temas del curso.
