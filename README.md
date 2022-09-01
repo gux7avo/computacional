@@ -32,3 +32,11 @@ Como primer tema del curso de Física Computacional, comenzamos a estudiar los e
 Se presenta también el concepto de punto flotante, las consideraciones necesarias para el manejo de este tipo de representación de los números.
 
 Haremos ejercicios representativos que nos darán las bases generales para los siguientes temas del curso.
+
+# Tema 2 - Operaciones matemáticas básicas.
+
+En este tema abordaremos los procedimientos generales y en python para:
+1. Interpolación (Lagrange y Newton)
+2. Cálculo de raíces.
+3. Diferenciación numérica.
+4. Integración numérica (Fórmulas de Newton-Cotes y Gaussianas)
