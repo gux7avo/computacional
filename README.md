@@ -40,3 +40,22 @@ En este tema abordaremos los procedimientos generales y en python para:
 2. Cálculo de raíces.
 3. Diferenciación numérica.
 4. Integración numérica (Fórmulas de Newton-Cotes y Gaussianas)
+
+# Tema 3 - Ecuaciones diferenciales ordinarias.
+
+La particular importancia de los métodos numéricos para resolver ecuaciones diferenciales ordinarias (EDO) o sistemas de las mismas se debe al hecho de que muchas de las leyes de la naturaleza se expresan convenientemente en forma diferencial.
+
+Las ecuaciones clásicas del movimiento de partículas, las ecuaciones de difusión de masa o transporte de calor, o la ecuación de onda de Schrödinger son solo algunos ejemplos que ilustran la extraordinaria diversidad de fenómenos físicos esencialmente diferentes, que se modelan mediante ecuaciones diferenciales.
+
+En este tema abordaremos dos tipos de problemas:
+
+1. Los problemas de valores iniciales.
+  - Método de Euler.
+  - Métodos de Runge-Kutta.
+  - Estabilidad y rigidez de los métodos.
+  - Método predictor-corrector.
+  - Método adaptativo de Runge-Kutta.
+
+2. Los problemas con dos puntos de frontera.
+  - Método de disparo.
+  - Problemas de tipo Sturm-Liouville.
