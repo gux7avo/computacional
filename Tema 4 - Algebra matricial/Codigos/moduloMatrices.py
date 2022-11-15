@@ -4,7 +4,9 @@
 
 @author: gustavo
 """
+
 import numpy as np
+from random import random
 
 
 def choleski(a):
@@ -22,6 +24,30 @@ def choleski(a):
     for k in range(1,n): a[0:k,k] = 0.0
     
     return a
+
+def LUdescomp(a):
+    n = len(a)
+    
+    for k in range(0, n-1):
+        for i in range(k+1, n):
+           if a[i,k] != 0.0:
+               lam = a [i,k]/a[k,k]
+               a[i,k+1:n] = a[i,k+1:n] - lam * a[k,k+1:n]
+               a[i,k] = lam
+    return a
+
+def LUsoluc(a,b):
+    n = len(a)
+    
+    for k in range(1, n):
+        b[k] = b[k] - np.dot(a[k,0:k],b[0:k])
+        
+    b[n-1] = b[n-1]/a[n-1,n-1]    
+    
+    for k in range(n-2,-1,-1):
+       b[k] = (b[k] - np.dot(a[k,k+1:n],b[k+1:n]))/a[k,k]
+    
+    return b
 
 def LUdescomp3(c, d, e):
     n = len(d)
@@ -186,3 +212,89 @@ def formaEstd(a, b):
     invierte(L)
     h = np.dot(b,np.inner(a,L))
     return h, np.transpose(L)
+
+def potenciaInversa(a, s, tol=1.0e-6):
+    n = len(a)
+    aAst = a - np.identity(n) * s  # Forma [a*] = [a] - s[I]
+    aAst = LUdescomp(aAst)       # Descompone [a*]
+    x = np.zeros(n)
+    
+    for i in range(n):          # Semilla [x] para los numeros aleatorios
+        x[i] = random()
+        
+    xMag = np.sqrt(np.dot(x,x)) # Normaliza [x]
+    x =x/xMag
+    
+    for i in range(50):         # Comienzan las iteraciones
+        xAnterior = x.copy()         # Guarda el actual [x]
+        x = LUsoluc(aAst, x)      # Resuelve [a*][x] = [xOld]
+        xMag = np.sqrt(np.dot(x,x)) # Normaliza [x]
+        x = x/xMag
+        
+        if np.dot(xAnterior,x) < 0.0:  # Detecta cambio de signo de [x]
+            sign = -1.0
+            x = -x
+        else: sign = 1.0
+        
+        
+        if np.sqrt(np.dot(xAnterior - x, xAnterior - x)) < tol:
+            return s + sign/xMag, x, i
+    
+    print('El método de la potencia inversa no converge')  
+        
+def potenciaInversa5(Bv, d, e, f, tol=1.0e-6):
+    
+    n = len(d)
+    d, e, f = LUdescomp5(d, e, f)
+    x = np.random.rand(n)
+    xMag = np.sqrt(np.dot(x,x))
+    x = x/xMag
+    
+    for i in range(30):
+        xAnterior = x.copy()
+        x = Bv(xAnterior)
+        x = LUsoluc5(d, e, f, x)
+        xMag = np.sqrt(np.dot(x,x))
+        x = x/xMag
+        
+        if np.dot(xAnterior,x) < 0.0:
+            sign = -1.0
+            x = -x
+        else: sign = 1.0
+        
+        if np.sqrt(np.dot(xAnterior - x,xAnterior - x)) < tol:
+            return sign/xMag, x
+    
+    print('El método de la potencia inversa no converge')
+    
+def householder(a):
+    n = len(a)
+    
+    for k in range(n-2):
+        u = a[k+1:n,k]
+        uMag = np.sqrt(np.dot(u,u))
+        
+        if u[0] < 0.0: uMag = -uMag
+        
+        u[0] = u[0] + uMag
+        h = np.dot(u,u)/2.0
+        v = np.dot(a[k+1:n,k+1:n],u)/h
+        g = np.dot(u,v)/(2.0*h)
+        v = v - g * u
+        a[k+1:n,k+1:n] = a[k+1:n,k+1:n] - np.outer(v,u)- np.outer(u,v)
+        a[k,k+1] = -uMag
+        
+    return np.diagonal(a), np.diagonal(a,1)
+
+def calculaP(a):
+        
+    n = len(a)
+    p = np.identity(n) * 1.0
+    
+    for k in range(n-2):
+        u = a[k+1:n,k]
+        h = np.dot(u,u)/2.0
+        v = np.dot(p[1:n,k+1:n],u)/h
+        p[1:n,k+1:n] = p[1:n,k+1:n] - np.outer(v,u)
+    
+    return p
