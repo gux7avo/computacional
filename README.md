@@ -59,3 +59,15 @@ En este tema abordaremos dos tipos de problemas:
 2. Los problemas con dos puntos de frontera.
   - Método de disparo.
   - Problemas de tipo Sturm-Liouville.
+ 
+# Tema 4 - Álgebra matricial.
+
+En este tema se revisará la estrategia de diagonalización de matrices simétricas de coeficientes para resolver de manera máa sencilla un probelma de eigenvalores. Veremos los temas de:
+  - Método de Jacobi.
+  - Método de la potencia y potencia inversa.
+  - Diagonalización de Householder.
+  
+ # Tema 5 - Métodos Monte Carlo.
+ 
+ El tema del azar o aleatoridad se revisará como punto inicial, para luego continuar con algunas aplicaciones imortantes: generadores de números aleatorios e **integración Monte Carlo**.
+ 
