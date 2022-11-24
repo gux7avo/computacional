@@ -69,5 +69,8 @@ En este tema se revisará la estrategia de diagonalización de matrices simétri
   
  # Tema 5 - Métodos Monte Carlo.
  
- El tema del azar o aleatoridad se revisará como punto inicial, para luego continuar con algunas aplicaciones imortantes: generadores de números aleatorios e **integración Monte Carlo**.
+ El tema del azar o aleatoridad se revisará como punto inicial, para luego continuar con algunas aplicaciones importantes:
+ 1. Generadores de números aleatorios.
+ 2. Itegración Monte Carlo.
+ 3. Caminatas aleatorias.
  
